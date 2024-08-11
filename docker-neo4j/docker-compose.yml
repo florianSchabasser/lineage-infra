@@ -33,9 +33,6 @@ services:
       - ./logs/server1:/logs
       - ./conf/server1:/conf
       - ./import/server1:/import
-      #- ./metrics/server1:/metrics
-      #- ./licenses/server1:/licenses
-      #- ./ssl/server1:/ssl
 
     # Passes the following environment variables to the container
     environment:
@@ -70,9 +67,6 @@ services:
       - ./logs/server2:/logs
       - ./conf/server2:/conf
       - ./import/server2:/import
-      #- ./metrics/server2:/metrics
-      #- ./licenses/server2:/licenses
-      #- ./ssl/server2:/ssl
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -128,9 +122,6 @@ services:
       - ./logs/server4:/logs
       - ./conf/server4:/conf
       - ./import/server4:/import
-      #- ./metrics/server4:/metrics
-      #- ./licenses/server4:/licenses
-      #- ./ssl/server4:/ssl
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
