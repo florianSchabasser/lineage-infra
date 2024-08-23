@@ -1,10 +1,5 @@
 version: '3.8'
 
-networks:
-  shared-network:
-    name: shared_network
-    external: true
-
 services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
@@ -50,3 +45,8 @@ services:
 volumes:
   namenode_data:
   datanode1_data:
+
+networks:
+  shared-network:
+    name: shared_network
+    external: true
