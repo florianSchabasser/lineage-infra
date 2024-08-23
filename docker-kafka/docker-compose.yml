@@ -1,9 +1,3 @@
-version: '3.8'
-
-networks:
-  shared-network:
-    external: true
-
 services:
   zookeeper-1:
     image: confluentinc/cp-zookeeper:7.4.4
@@ -99,3 +93,7 @@ services:
         limits:
           cpus: "0.5"
           memory: "1g"
+
+networks:
+  shared:
+    external: true

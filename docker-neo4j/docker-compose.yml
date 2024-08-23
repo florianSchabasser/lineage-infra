@@ -1,11 +1,4 @@
-version: '3.8'
-
-networks:
-  shared-network:
-    external: true
-
 services:
-
   server1:
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server1
@@ -92,3 +85,7 @@ services:
         limits:
           cpus: "3"
           memory: "12g"
+
+networks:
+  shared:
+    external: true

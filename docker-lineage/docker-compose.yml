@@ -1,9 +1,3 @@
-version: '3.8'
-
-networks:
-  shared-network:
-    external: true
-
 services:
   lineage-backend-1:
     image: lineage-backend:latest
@@ -43,3 +37,7 @@ services:
       - "8083:8080"
     networks:
       - shared-network
+
+networks:
+  shared:
+    external: true
