@@ -1,3 +1,5 @@
+chmod 640 neo4j.conf
+
 export USER_ID="$(id -u)"
 export GROUP_ID="$(id -g)"
 export NEO4J_DOCKER_IMAGE=neo4j:enterprise
