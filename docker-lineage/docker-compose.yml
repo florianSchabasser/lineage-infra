@@ -1,6 +1,5 @@
 services:
   lineage-backend-1:
-    restart: always
     image: lineage-backend:latest
     deploy:
       replicas: 1
@@ -14,7 +13,6 @@ services:
       - shared
 
   lineage-backend-2:
-    restart: always
     image: lineage-backend:latest
     deploy:
       replicas: 1
@@ -28,7 +26,6 @@ services:
       - shared
 
   lineage-backend-3:
-    restart: always
     image: lineage-backend:latest
     deploy:
       replicas: 1

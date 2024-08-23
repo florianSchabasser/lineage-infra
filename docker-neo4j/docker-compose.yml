@@ -1,6 +1,5 @@
 services:
   server1:
-    restart: always
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server1
     networks:
@@ -30,7 +29,6 @@ services:
           memory: "16g"
 
   server2:
-    restart: always
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server2
     networks:
@@ -60,7 +58,6 @@ services:
           memory: "12g"
 
   server3:
-    restart: always
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server3
     networks:
