@@ -43,28 +43,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "2g"
-
-  datanode2:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode2
-    restart: always
-    ports:
-      - 9867:9866
-    volumes:
-      - datanode2_data:/hadoop/dfs/data
-    env_file:
-      - ./hadoop.env
-    environment:
-      SERVICE_PRECONDITION: "namenode:9870"
-    networks:
-      - shared-network
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: "2g"
+          cpus: "1"
+          memory: "4g"
 
 volumes:
   namenode_data:
