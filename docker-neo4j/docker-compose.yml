@@ -1,5 +1,6 @@
 services:
   server1:
+    restart: always
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server1
     networks:
@@ -9,10 +10,10 @@ services:
       - "7687:7687"
     volumes:
       - ./neo4j.conf:/conf/neo4j.conf
-      - ./data/server1:/data
-      - ./logs/server1:/logs
-      - ./conf/server1:/conf
-      - ./import/server1:/import
+      - server1_data:/data
+      - server1_logs:/logs
+      - server1_conf:/conf
+      - server1_import:/import
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -29,6 +30,7 @@ services:
           memory: "16g"
 
   server2:
+    restart: always
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server2
     networks:
@@ -38,10 +40,10 @@ services:
       - "7688:7687"
     volumes:
       - ./neo4j.conf:/conf/neo4j.conf
-      - ./data/server2:/data
-      - ./logs/server2:/logs
-      - ./conf/server2:/conf
-      - ./import/server2:/import
+      - server2_data:/data
+      - server2_logs:/logs
+      - server2_conf:/conf
+      - server2_import:/import
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -58,6 +60,7 @@ services:
           memory: "12g"
 
   server3:
+    restart: always
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server3
     networks:
@@ -67,10 +70,10 @@ services:
       - "7689:7687"
     volumes:
       - ./neo4j.conf:/conf/neo4j.conf
-      - ./data/server3:/data
-      - ./logs/server3:/logs
-      - ./conf/server3:/conf
-      - ./import/server3:/import
+      - server3_data:/data
+      - server3_logs:/logs
+      - server3_conf:/conf
+      - server3_import:/import
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -85,6 +88,20 @@ services:
         limits:
           cpus: "3"
           memory: "12g"
+
+volumes:
+  server1_data:
+  server1_logs:
+  server1_conf:
+  server1_import:
+  server2_data:
+  server2_logs:
+  server2_conf:
+  server2_import:
+  server3_data:
+  server3_logs:
+  server3_conf:
+  server3_import:
 
 networks:
   shared:
