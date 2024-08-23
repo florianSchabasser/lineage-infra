@@ -13,7 +13,7 @@ services:
     env_file:
       - ./hadoop.env
     networks:
-      - shared-network
+      - shared
     deploy:
       resources:
         limits:
@@ -33,7 +33,7 @@ services:
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
     networks:
-      - shared-network
+      - shared
     deploy:
       resources:
         limits:
@@ -45,5 +45,5 @@ volumes:
   datanode1_data:
 
 networks:
-  shared-network:
+  shared:
     external: true
