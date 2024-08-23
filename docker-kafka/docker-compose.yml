@@ -7,7 +7,7 @@ services:
     ports:
       - 22181:2181
     networks:
-      - shared-network
+      - shared
     deploy:
       resources:
         limits:
@@ -22,7 +22,7 @@ services:
     ports:
       - 32181:2181
     networks:
-      - shared-network
+      - shared
     deploy:
       resources:
         limits:
@@ -37,7 +37,7 @@ services:
     ports:
       - 29092:29092
     networks:
-      - shared-network
+      - shared
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181
@@ -59,7 +59,7 @@ services:
     ports:
       - 39092:39092
     networks:
-      - shared-network
+      - shared
     environment:
       KAFKA_BROKER_ID: 2
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181
@@ -78,7 +78,7 @@ services:
     ports:
       - "9001:8080"
     networks:
-      - shared-network
+      - shared
     depends_on:
       kafka-1:
         condition: service_started

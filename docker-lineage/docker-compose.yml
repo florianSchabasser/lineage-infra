@@ -10,7 +10,7 @@ services:
     ports:
       - "8081:8080"
     networks:
-      - shared-network
+      - shared
 
   lineage-backend-2:
     image: lineage-backend:latest
@@ -23,7 +23,7 @@ services:
     ports:
       - "8082:8080"
     networks:
-      - shared-network
+      - shared
 
   lineage-backend-3:
     image: lineage-backend:latest
@@ -36,7 +36,7 @@ services:
     ports:
       - "8083:8080"
     networks:
-      - shared-network
+      - shared
 
 networks:
   shared:

@@ -3,7 +3,7 @@ services:
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server1
     networks:
-      - shared-network
+      - shared
     ports:
       - "7474:7474"
       - "7687:7687"
@@ -32,7 +32,7 @@ services:
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server2
     networks:
-      - shared-network
+      - shared
     ports:
       - "7475:7474"
       - "7688:7687"
@@ -61,7 +61,7 @@ services:
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: server3
     networks:
-      - shared-network
+      - shared
     ports:
       - "7476:7474"
       - "7689:7687"
