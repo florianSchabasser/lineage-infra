@@ -1,4 +1,4 @@
-docker network create shared_network
+docker network create --driver bridge shared_network
 
 cd ./docker-hadoop || exit
 docker-compose up -d
