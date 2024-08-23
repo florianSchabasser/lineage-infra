@@ -2,6 +2,8 @@ version: '3.8'
 
 networks:
   shared-network:
+    name: shared_network
+    external: true
 
 services:
   namenode:
@@ -48,4 +50,3 @@ services:
 volumes:
   namenode_data:
   datanode1_data:
-  datanode2_data:
