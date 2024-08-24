@@ -1,7 +1,7 @@
 services:
   spark-master:
     restart: always
-    image: floriansdocker/spark-lineage:latest
+    image: floriansdocker/spark-lineage:1.0.0
     command: bin/spark-class org.apache.spark.deploy.master.Master
     ports:
       - "8080:8080"
@@ -22,7 +22,7 @@ services:
 
   spark-worker-1:
     restart: always
-    image: floriansdocker/spark-lineage:latest
+    image: floriansdocker/spark-lineage:1.0.0
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
@@ -42,7 +42,7 @@ services:
 
   spark-worker-2:
     restart: always
-    image: floriansdocker/spark-lineage:latest
+    image: floriansdocker/spark-lineage:1.0.0
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
@@ -62,7 +62,7 @@ services:
 
   spark-worker-3:
     restart: always
-    image: floriansdocker/spark-lineage:latest
+    image: floriansdocker/spark-lineage:1.0.0
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master

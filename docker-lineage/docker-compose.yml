@@ -1,7 +1,7 @@
 services:
   lineage-backend-1:
     restart: always
-    image: floriansdocker/lineage-backend:latest
+    image: floriansdocker/lineage-backend:1.0.1
     deploy:
       replicas: 1
       resources:
@@ -15,7 +15,7 @@ services:
 
   lineage-backend-2:
     restart: always
-    image: floriansdocker/lineage-backend:latest
+    image: floriansdocker/lineage-backend:1.0.1
     deploy:
       replicas: 1
       resources:
@@ -29,7 +29,7 @@ services:
 
   lineage-backend-3:
     restart: always
-    image: floriansdocker/lineage-backend:latest
+    image: floriansdocker/lineage-backend:1.0.1
     deploy:
       replicas: 1
       resources:
