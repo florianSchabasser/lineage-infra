@@ -1,5 +1,6 @@
 services:
   lineage-backend-1:
+    container_name: backend-1
     restart: always
     image: floriansdocker/lineage-backend:1.0.2
     deploy:
@@ -15,6 +16,7 @@ services:
 
   lineage-backend-2:
     restart: always
+    container_name: backend-2
     image: floriansdocker/lineage-backend:1.0.2
     deploy:
       replicas: 1
@@ -29,6 +31,7 @@ services:
 
   lineage-backend-3:
     restart: always
+    container_name: backend-3
     image: floriansdocker/lineage-backend:1.0.2
     deploy:
       replicas: 1
