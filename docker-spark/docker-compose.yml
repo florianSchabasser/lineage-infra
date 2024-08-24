@@ -10,6 +10,8 @@ services:
       - SPARK_MODE=master
       - SPARK_MASTER_PORT=7077
       - SPARK_MASTER_WEBUI_PORT=8080
+    volumes:
+      - ./kafka.properties:/conf/kafka.properties
     deploy:
       resources:
         limits:
@@ -28,6 +30,8 @@ services:
       - SPARK_MODE=worker
       - SPARK_WORKER_CORES=2
       - SPARK_WORKER_MEMORY=8g
+    volumes:
+      - ./kafka.properties:/conf/kafka.properties
     deploy:
       resources:
         limits:
@@ -46,6 +50,8 @@ services:
       - SPARK_MODE=worker
       - SPARK_WORKER_CORES=2
       - SPARK_WORKER_MEMORY=8g
+    volumes:
+      - ./kafka.properties:/conf/kafka.properties
     deploy:
       resources:
         limits:
@@ -64,6 +70,8 @@ services:
       - SPARK_MODE=worker
       - SPARK_WORKER_CORES=2
       - SPARK_WORKER_MEMORY=8g
+    volumes:
+      - ./kafka.properties:/conf/kafka.properties
     deploy:
       resources:
         limits:
