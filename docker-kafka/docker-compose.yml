@@ -12,8 +12,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "1"
-          memory: "2g"
+          cpus: "2"
+          memory: "4g"
 
   zookeeper-2:
     restart: always
@@ -28,8 +28,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "1"
-          memory: "2g"
+          cpus: "2"
+          memory: "4g"
 
   kafka-1:
     restart: always
@@ -51,8 +51,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
-          memory: "4g"
+          cpus: "3"
+          memory: "12g"
 
   kafka-2:
     restart: always
@@ -74,8 +74,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
-          memory: "4g"
+          cpus: "3"
+          memory: "12g"
 
   kafka-ui:
     restart: always
@@ -97,7 +97,7 @@ services:
       resources:
         limits:
           cpus: "0.5"
-          memory: "1g"
+          memory: "2g"
 
 networks:
   shared:
