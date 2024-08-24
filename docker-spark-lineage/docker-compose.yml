@@ -3,7 +3,8 @@ services:
     restart: always
     container_name: spark-master-lineage
     image: floriansdocker/spark-lineage:1.0.5
-    command: sbin/start-master.sh
+    command: bin/spark-class org.apache.spark.deploy.master.Master
+    # command: sbin/start-master.sh
     ports:
       - "8080:8080"
       - "7077:7077"
@@ -23,7 +24,8 @@ services:
     restart: always
     container_name: spark-worker-1-lineage
     image: floriansdocker/spark-lineage:1.0.5
-    command: sbin/start-worker.sh spark://spark-master:7077
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    # command: sbin/start-worker.sh spark://spark-master:7077
     depends_on:
       - spark-master
     environment:
@@ -42,7 +44,8 @@ services:
     restart: always
     container_name: spark-worker-2-lineage
     image: floriansdocker/spark-lineage:1.0.5
-    command: sbin/start-worker.sh spark://spark-master:7077
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    # command: sbin/start-worker.sh spark://spark-master:7077
     depends_on:
       - spark-master
     environment:
@@ -61,7 +64,8 @@ services:
     restart: always
     container_name: spark-worker-3-lineage
     image: floriansdocker/spark-lineage:1.0.5
-    command: sbin/start-worker.sh spark://spark-master:7077
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    # command: sbin/start-worker.sh spark://spark-master:7077
     depends_on:
       - spark-master
     environment:
