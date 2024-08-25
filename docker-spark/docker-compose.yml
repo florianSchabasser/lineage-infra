@@ -1,6 +1,5 @@
 services:
   spark-master:
-    restart: always
     image: bitnami/spark:latest
     container_name: spark-master
     hostname: spark-master
@@ -22,7 +21,6 @@ services:
       - shared
 
   spark-worker-1:
-    restart: always
     image: bitnami/spark:latest
     container_name: spark-worker-1
     hostname: spark-worker-1
@@ -40,7 +38,6 @@ services:
       - shared
 
   spark-worker-2:
-    restart: always
     image: bitnami/spark:latest
     container_name: spark-worker-2
     hostname: spark-worker-2
@@ -58,7 +55,6 @@ services:
       - shared
 
   spark-worker-3:
-    restart: always
     image: bitnami/spark:latest
     container_name: spark-worker-3
     hostname: spark-worker-3
