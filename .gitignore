@@ -1,6 +1,6 @@
 .idea
-docker-neo4j/neo4j_db
-docker-neo4j/conf/
-docker-neo4j/data/
-docker-neo4j/import/
-docker-neo4j/logs/
+docker-neo4j-cluster/neo4j_db
+docker-neo4j-cluster/conf/
+docker-neo4j-cluster/data/
+docker-neo4j-cluster/import/
+docker-neo4j-cluster/logs/

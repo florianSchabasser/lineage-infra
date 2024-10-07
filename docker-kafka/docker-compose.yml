@@ -50,12 +50,11 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://kafka-1:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     deploy:
       resources:
         limits:
-          cpus: "3"
-          memory: "12g"
+          cpus: "2"
+          memory: "8g"
 
   kafka-2:
     restart: always
@@ -74,12 +73,34 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9092,PLAINTEXT_HOST://kafka-2:39092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     deploy:
       resources:
         limits:
-          cpus: "3"
-          memory: "12g"
+          cpus: "2"
+          memory: "8g"
+
+  kafka-3:
+    restart: always
+    container_name: kafka-3
+    image: confluentinc/cp-kafka:7.4.4
+    depends_on:
+      - zookeeper-1
+      - zookeeper-2
+    ports:
+      - 49092:49092
+    networks:
+      - shared
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9092,PLAINTEXT_HOST://kafka-2:49092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "8g"
 
   kafka-ui:
     restart: always

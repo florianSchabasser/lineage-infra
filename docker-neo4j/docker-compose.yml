@@ -1,116 +1,36 @@
 services:
-  neo4j-1:
-    container_name: neo4j-1
+  neo4j:
+    container_name: neo4j
     restart: always
-    image: ${NEO4J_DOCKER_IMAGE}
-    hostname: neo4j-1
-    networks:
-      shared:
-        aliases:
-          - neo4j-network
+    image: neo4j:latest
     ports:
-      - "7474:7474"
-      - "7687:7687"
-    volumes:
-      - ./neo4j.conf:/conf/neo4j.conf
-      - neo4j-1_data:/data
-      - neo4j-1_logs:/logs
-      - neo4j-1_conf:/conf
-      - neo4j-1_import:/import
+      - 7474:7474
+      - 7687:7687
     environment:
-      - NEO4J_ACCEPT_LICENSE_AGREEMENT
-      - NEO4J_AUTH
-      - EXTENDED_CONF
-      - NEO4J_EDITION
-      - NEO4J_initial_server_mode__constraint=PRIMARY
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+      - NEO4J_server_memory_heap_initial__size=4G
+      - NEO4J_server_memory_heap_max__size=16G
     healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
-    user: ${USER_ID}:${GROUP_ID}
+      test: [ "CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1" ]
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_conf:/conf
+      - neo4j_import:/import
+    hostname: neo4j
+    networks:
+      - shared
     deploy:
       resources:
         limits:
           cpus: "4"
           memory: "16g"
 
-  neo4j-2:
-    restart: always
-    container_name: neo4j-2
-    image: ${NEO4J_DOCKER_IMAGE}
-    hostname: neo4j-2
-    networks:
-      shared:
-        aliases:
-          - neo4j-network
-    ports:
-      - "7475:7474"
-      - "7688:7687"
-    volumes:
-      - ./neo4j.conf:/conf/neo4j.conf
-      - neo4j-2_data:/data
-      - neo4j-2_logs:/logs
-      - neo4j-2_conf:/conf
-      - neo4j-2_import:/import
-    environment:
-      - NEO4J_ACCEPT_LICENSE_AGREEMENT
-      - NEO4J_AUTH
-      - EXTENDED_CONF
-      - NEO4J_EDITION
-      - NEO4J_initial_server_mode__constraint=SECONDARY
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
-    user: ${USER_ID}:${GROUP_ID}
-    deploy:
-      resources:
-        limits:
-          cpus: "3"
-          memory: "12g"
-
-  neo4j-3:
-    restart: always
-    container_name: neo4j-3
-    image: ${NEO4J_DOCKER_IMAGE}
-    hostname: neo4j-3
-    networks:
-      shared:
-        aliases:
-          - neo4j-network
-    ports:
-      - "7476:7474"
-      - "7689:7687"
-    volumes:
-      - ./neo4j.conf:/conf/neo4j.conf
-      - neo4j-3_data:/data
-      - neo4j-3_logs:/logs
-      - neo4j-3_conf:/conf
-      - neo4j-3_import:/import
-    environment:
-      - NEO4J_ACCEPT_LICENSE_AGREEMENT
-      - NEO4J_AUTH
-      - EXTENDED_CONF
-      - NEO4J_EDITION
-      - NEO4J_initial_server_mode__constraint=SECONDARY
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
-    user: ${USER_ID}:${GROUP_ID}
-    deploy:
-      resources:
-        limits:
-          cpus: "3"
-          memory: "12g"
-
 volumes:
-  neo4j-1_data:
-  neo4j-1_logs:
-  neo4j-1_conf:
-  neo4j-1_import:
-  neo4j-2_data:
-  neo4j-2_logs:
-  neo4j-2_conf:
-  neo4j-2_import:
-  neo4j-3_data:
-  neo4j-3_logs:
-  neo4j-3_conf:
-  neo4j-3_import:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_conf:
+  neo4j_import:
 
 networks:
   shared:
