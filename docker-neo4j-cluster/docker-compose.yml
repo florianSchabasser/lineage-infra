@@ -13,10 +13,10 @@ services:
       - "7687:7687"
     volumes:
       - ./neo4j.conf:/conf/neo4j.conf
-      - neo4j-1_data:/data
-      - neo4j-1_logs:/logs
-      - neo4j-1_conf:/conf
-      - neo4j-1_import:/import
+      - neo4j-cluster-1_data:/data
+      - neo4j-cluster-1_logs:/logs
+      - neo4j-cluster-1_conf:/conf
+      - neo4j-cluster-1_import:/import
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -46,10 +46,10 @@ services:
       - "7688:7687"
     volumes:
       - ./neo4j.conf:/conf/neo4j.conf
-      - neo4j-2_data:/data
-      - neo4j-2_logs:/logs
-      - neo4j-2_conf:/conf
-      - neo4j-2_import:/import
+      - neo4j-cluster-2_data:/data
+      - neo4j-cluster-2_logs:/logs
+      - neo4j-cluster-2_conf:/conf
+      - neo4j-cluster-2_import:/import
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -79,10 +79,10 @@ services:
       - "7689:7687"
     volumes:
       - ./neo4j.conf:/conf/neo4j.conf
-      - neo4j-3_data:/data
-      - neo4j-3_logs:/logs
-      - neo4j-3_conf:/conf
-      - neo4j-3_import:/import
+      - neo4j-cluster-3_data:/data
+      - neo4j-cluster-3_logs:/logs
+      - neo4j-cluster-3_conf:/conf
+      - neo4j-cluster-3_import:/import
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT
       - NEO4J_AUTH
@@ -99,18 +99,18 @@ services:
           memory: "12g"
 
 volumes:
-  neo4j-1_data:
-  neo4j-1_logs:
-  neo4j-1_conf:
-  neo4j-1_import:
-  neo4j-2_data:
-  neo4j-2_logs:
-  neo4j-2_conf:
-  neo4j-2_import:
-  neo4j-3_data:
-  neo4j-3_logs:
-  neo4j-3_conf:
-  neo4j-3_import:
+  neo4j-cluster-1_data:
+  neo4j-cluster-1_logs:
+  neo4j-cluster-1_conf:
+  neo4j-cluster-1_import:
+  neo4j-cluster-2_data:
+  neo4j-cluster-2_logs:
+  neo4j-cluster-2_conf:
+  neo4j-cluster-2_import:
+  neo4j-cluster-3_data:
+  neo4j-cluster-3_logs:
+  neo4j-cluster-3_conf:
+  neo4j-cluster-3_import:
 
 networks:
   shared:
