@@ -118,6 +118,8 @@ services:
         condition: service_started
       kafka-2:
         condition: service_started
+      kafka-3:
+        condition: service_started
     environment:
       KAFKA_CLUSTERS_0_NAME: lineage
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9092,kafka-2:9092,kafka-3:9092

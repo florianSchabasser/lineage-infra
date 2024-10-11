@@ -1,7 +1,6 @@
 services:
   neo4j-1:
-    container_name: neo4j-1
-    restart: always
+    container_name: neo4j-1-cluster
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: neo4j-1
     networks:
@@ -33,8 +32,7 @@ services:
           memory: "16g"
 
   neo4j-2:
-    restart: always
-    container_name: neo4j-2
+    container_name: neo4j-2-cluster
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: neo4j-2
     networks:
@@ -66,8 +64,7 @@ services:
           memory: "12g"
 
   neo4j-3:
-    restart: always
-    container_name: neo4j-3
+    container_name: neo4j-3-cluster
     image: ${NEO4J_DOCKER_IMAGE}
     hostname: neo4j-3
     networks:
