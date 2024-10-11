@@ -2,7 +2,7 @@ services:
   spark-master:
     restart: always
     container_name: spark-master-lineage
-    image: floriansdocker/spark-lineage:1.0.6
+    image: floriansdocker/spark-lineage:1.0.7
     command: bin/spark-class org.apache.spark.deploy.master.Master
     # command: sbin/start-master.sh
     ports:
@@ -23,7 +23,7 @@ services:
   spark-worker-1:
     restart: always
     container_name: spark-worker-1-lineage
-    image: floriansdocker/spark-lineage:1.0.6
+    image: floriansdocker/spark-lineage:1.0.7
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     # command: sbin/start-worker.sh spark://spark-master:7077
     depends_on:
@@ -43,7 +43,7 @@ services:
   spark-worker-2:
     restart: always
     container_name: spark-worker-2-lineage
-    image: floriansdocker/spark-lineage:1.0.6
+    image: floriansdocker/spark-lineage:1.0.7
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     # command: sbin/start-worker.sh spark://spark-master:7077
     depends_on:
@@ -63,7 +63,7 @@ services:
   spark-worker-3:
     restart: always
     container_name: spark-worker-3-lineage
-    image: floriansdocker/spark-lineage:1.0.6
+    image: floriansdocker/spark-lineage:1.0.7
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     # command: sbin/start-worker.sh spark://spark-master:7077
     depends_on:
