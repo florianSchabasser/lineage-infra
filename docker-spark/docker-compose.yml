@@ -1,8 +1,8 @@
 services:
-  spark-master:
+  spark-master-unmodified:
     image: bitnami/spark:latest
-    container_name: spark-master
-    hostname: spark-master
+    container_name: spark-master-unmodified
+    hostname: spark-master-unmodified
     ports:
       - "8080:8080"   # Spark Web UI
       - "7077:7077"   # Spark master port
@@ -21,13 +21,13 @@ services:
     networks:
       - shared
 
-  spark-worker-1:
+  spark-worker-1-unmodified:
     image: bitnami/spark:latest
-    container_name: spark-worker-1
-    hostname: spark-worker-1
+    container_name: spark-worker-1-unmodified
+    hostname: spark-worker-1-unmodified
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_MASTER_URL=spark://spark-master-unmodified:7077
 #      - SPARK_WORKER_MEMORY=8G
 #      - SPARK_WORKER_CORES=2
     restart: always
@@ -39,13 +39,13 @@ services:
     networks:
       - shared
 
-  spark-worker-2:
+  spark-worker-2-unmodified:
     image: bitnami/spark:latest
-    container_name: spark-worker-2
-    hostname: spark-worker-2
+    container_name: spark-worker-2-unmodified
+    hostname: spark-worker-2-unmodified
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_MASTER_URL=spark://spark-master-unmodified:7077
 #      - SPARK_WORKER_MEMORY=8G
 #      - SPARK_WORKER_CORES=2
     restart: always
@@ -57,13 +57,13 @@ services:
     networks:
       - shared
 
-  spark-worker-3:
+  spark-worker-3-unmodified:
     image: bitnami/spark:latest
-    container_name: spark-worker-3
-    hostname: spark-worker-3
+    container_name: spark-worker-3-unmodified
+    hostname: spark-worker-3-unmodified
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_MASTER_URL=spark://spark-master-unmodified:7077
 #      - SPARK_WORKER_MEMORY=8G
 #      - SPARK_WORKER_CORES=2
     restart: always
