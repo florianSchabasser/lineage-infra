@@ -12,5 +12,8 @@ docker-compose up -d
 cd ../docker-lineage || exit
 docker-compose up -d
 
+cd ../docker-spark-lineage || exit
+docker-compose up -d
+
 cd ../docker-spark || exit
 docker-compose up -d

@@ -1,18 +1,15 @@
 services:
-  spark-master-unmodified:
-    image: bitnami/spark:latest
-    container_name: spark-master-unmodified
-    hostname: spark-master-unmodified
+  spark-master:
+    restart: always
+    container_name: spark-master
+    image: floriansdocker/spark:3.5.3
+    command: bin/spark-class org.apache.spark.deploy.master.Master
     ports:
-      - "8080:8080"   # Spark Web UI
-      - "7077:7077"   # Spark master port
+      - "8081:8080"
     environment:
       - SPARK_MODE=master
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=no
-      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
-    restart: always
+      - SPARK_MASTER_PORT=7077
+      - SPARK_MASTER_WEBUI_PORT=8080
     deploy:
       resources:
         limits:
@@ -21,57 +18,60 @@ services:
     networks:
       - shared
 
-  spark-worker-1-unmodified:
-    image: bitnami/spark:latest
-    container_name: spark-worker-1-unmodified
-    hostname: spark-worker-1-unmodified
+  spark-worker-1:
+    restart: always
+    container_name: spark-worker-1-lineage
+    image: floriansdocker/spark:3.5.3
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master-unmodified:7077
-      - SPARK_WORKER_MEMORY=8G
       - SPARK_WORKER_CORES=2
-    restart: always
+      - SPARK_WORKER_MEMORY=8g
     deploy:
       resources:
         limits:
           cpus: "2"
-          memory: "8g"
+          memory: "9g"
     networks:
       - shared
 
-  spark-worker-2-unmodified:
-    image: bitnami/spark:latest
-    container_name: spark-worker-2-unmodified
-    hostname: spark-worker-2-unmodified
+  spark-worker-2:
+    restart: always
+    container_name: spark-worker-2-lineage
+    image: floriansdocker/spark:3.5.3
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master-unmodified:7077
-      - SPARK_WORKER_MEMORY=8G
       - SPARK_WORKER_CORES=2
-    restart: always
+      - SPARK_WORKER_MEMORY=8g
     deploy:
       resources:
         limits:
           cpus: "2"
-          memory: "8g"
+          memory: "9g"
     networks:
       - shared
 
-  spark-worker-3-unmodified:
-    image: bitnami/spark:latest
-    container_name: spark-worker-3-unmodified
-    hostname: spark-worker-3-unmodified
+  spark-worker-3:
+    restart: always
+    container_name: spark-worker-3-lineage
+    image: floriansdocker/spark:3.5.3
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master-unmodified:7077
-      - SPARK_WORKER_MEMORY=8G
       - SPARK_WORKER_CORES=2
-    restart: always
+      - SPARK_WORKER_MEMORY=8g
     deploy:
       resources:
         limits:
           cpus: "2"
-          memory: "8g"
+          memory: "9g"
     networks:
       - shared
 
