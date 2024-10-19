@@ -8,11 +8,11 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 22181:2181
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: "2"
-#          memory: "4g"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "4g"
     networks:
       - shared
 
@@ -24,11 +24,11 @@ services:
       - zookeeper-1
     ports:
       - 29092:29092
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: "2"
-#          memory: "7g"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "7g"
     networks:
       - shared
     environment:
@@ -47,11 +47,11 @@ services:
       - zookeeper-1
     ports:
       - 39092:39092
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: "2"
-#          memory: "7g"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "7g"
     networks:
       - shared
     environment:
@@ -70,11 +70,11 @@ services:
       - zookeeper-1
     ports:
       - 49092:49092
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: "2"
-#          memory: "7g"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "7g"
     networks:
       - shared
     environment:
@@ -91,11 +91,11 @@ services:
     image: provectuslabs/kafka-ui:v0.7.0
     ports:
       - "9001:8080"
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: "0.5"
-#          memory: "2g"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "2g"
     networks:
       - shared
     depends_on:
