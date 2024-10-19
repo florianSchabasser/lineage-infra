@@ -2,6 +2,9 @@ ssh -N -L 9870:localhost:9870 \
   -L 9001:localhost:9001 \
   -L 8080:localhost:8080 \
   -L 8081:localhost:8081 \
+  -L 9500:localhost:9500 \
+  -L 9501:localhost:9501 \
+  -L 9502:localhost:9502 \
   -L 7474:localhost:7474 \
   -L 7687:localhost:7687 \
   -L 29092:localhost:29092 \
@@ -11,4 +14,4 @@ ssh -N -L 9870:localhost:9870 \
   -L 7688:localhost:7688 \
   -L 7689:localhost:7689 \
   -L 9870:localhost:9870 \
-  -i "ssh_key.pem" ec2-user@ec2-18-184-209-3.eu-central-1.compute.amazonaws.com
+  -i "ssh_key.pem" ec2-user@ec2-18-197-143-186.eu-central-1.compute.amazonaws.com
