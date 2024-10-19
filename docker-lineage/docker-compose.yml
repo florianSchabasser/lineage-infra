@@ -3,12 +3,6 @@ services:
     container_name: backend-1
     restart: always
     image: floriansdocker/lineage-backend:1.0.8
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          cpus: "2"
-          memory: "3g"
     networks:
       - shared
 
@@ -16,12 +10,6 @@ services:
     restart: always
     container_name: backend-2
     image: floriansdocker/lineage-backend:1.0.8
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          cpus: "2"
-          memory: "3g"
     networks:
       - shared
 
@@ -29,12 +17,6 @@ services:
     restart: always
     container_name: backend-3
     image: floriansdocker/lineage-backend:1.0.8
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          cpus: "2"
-          memory: "3g"
     networks:
       - shared
 

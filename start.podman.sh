@@ -1,3 +1,5 @@
+podman network create shared
+
 cd ./docker-hadoop || exit
 podman-compose up -d
 

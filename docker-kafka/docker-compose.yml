@@ -11,11 +11,6 @@ services:
       - 22181:2181
     networks:
       - shared
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: "4g"
 
   zookeeper-2:
     restart: always
@@ -29,11 +24,6 @@ services:
       - 32181:2181
     networks:
       - shared
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: "4g"
 
   kafka-1:
     restart: always
@@ -54,11 +44,6 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_HEAP_OPTS: "-Xms6G -Xmx8G"
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: "8g"
 
   kafka-2:
     restart: always
@@ -79,11 +64,6 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_HEAP_OPTS: "-Xms6G -Xmx8G"
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: "8g"
 
   kafka-3:
     restart: always
@@ -104,11 +84,6 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_HEAP_OPTS: "-Xms6G -Xmx8G"
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: "8g"
 
   kafka-ui:
     restart: always
@@ -129,11 +104,6 @@ services:
       KAFKA_CLUSTERS_0_NAME: lineage
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9092,kafka-2:9092,kafka-3:9092
       DYNAMIC_CONFIG_ENABLED: 'true'
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: "2g"
 
 networks:
   shared:

@@ -14,11 +14,6 @@ services:
       - ./hadoop.env
     networks:
       - shared
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: "2g"
 
   datanode1:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
@@ -34,11 +29,6 @@ services:
       SERVICE_PRECONDITION: "namenode:9870"
     networks:
       - shared
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: "4g"
 
 volumes:
   namenode_data:
