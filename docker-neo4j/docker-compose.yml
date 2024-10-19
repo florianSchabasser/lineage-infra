@@ -21,8 +21,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "4"
-          memory: "16g"
+          cpus: "1"
+          memory: "1g"
 
 volumes:
   neo4j_data:
