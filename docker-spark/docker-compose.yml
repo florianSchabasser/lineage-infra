@@ -10,6 +10,11 @@ services:
       - SPARK_MODE=master
       - SPARK_MASTER_PORT=7077
       - SPARK_MASTER_WEBUI_PORT=8080
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "8g"
     networks:
       - shared
 
@@ -24,6 +29,11 @@ services:
       - SPARK_MODE=worker
       - SPARK_WORKER_CORES=2
       - SPARK_WORKER_MEMORY=8g
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "8g"
     networks:
       - shared
 
@@ -38,6 +48,11 @@ services:
       - SPARK_MODE=worker
       - SPARK_WORKER_CORES=2
       - SPARK_WORKER_MEMORY=8g
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "8g"
     networks:
       - shared
 
@@ -52,6 +67,11 @@ services:
       - SPARK_MODE=worker
       - SPARK_WORKER_CORES=2
       - SPARK_WORKER_MEMORY=8g
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "8g"
     networks:
       - shared
 

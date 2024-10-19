@@ -20,6 +20,11 @@ services:
       - neo4j_conf:/conf
       - neo4j_import:/import
     hostname: neo4j
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: "16g"
     networks:
       - shared
 

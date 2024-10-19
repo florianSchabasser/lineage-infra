@@ -14,6 +14,3 @@ podman-compose up -d
 
 cd ../docker-spark-lineage || exit
 podman-compose up -d
-
-cd ../docker-spark || exit
-podman-compose up -d

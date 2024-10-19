@@ -12,6 +12,11 @@ services:
       - namenode_data:/hadoop/dfs/name
     env_file:
       - ./hadoop.env
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "2g"
     networks:
       - shared
 
@@ -27,6 +32,11 @@ services:
       - ./hadoop.env
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "4g"
     networks:
       - shared
 
