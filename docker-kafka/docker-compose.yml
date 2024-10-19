@@ -128,6 +128,7 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: lineage
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9092,kafka-2:9092,kafka-3:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper-1:2181,zookeeper-2:2181
       DYNAMIC_CONFIG_ENABLED: 'true'
 
 networks:
