@@ -6,7 +6,6 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-      KAFKA_HEAP_OPTS: "-Xms3G -Xmx4G"
     ports:
       - 22181:2181
     deploy:
@@ -24,7 +23,6 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-      KAFKA_HEAP_OPTS: "-Xms3G -Xmx4G"
     ports:
       - 32181:2181
     deploy:
@@ -48,7 +46,7 @@ services:
       resources:
         limits:
           cpus: "2"
-          memory: "8g"
+          memory: "7g"
     networks:
       - shared
     environment:
@@ -58,7 +56,6 @@ services:
 #      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://localhost:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_HEAP_OPTS: "-Xms6G -Xmx8G"
 
   kafka-2:
     restart: always
@@ -73,7 +70,7 @@ services:
       resources:
         limits:
           cpus: "2"
-          memory: "8g"
+          memory: "7g"
     networks:
       - shared
     environment:
@@ -83,7 +80,6 @@ services:
 #      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9092,PLAINTEXT_HOST://localhost:39092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_HEAP_OPTS: "-Xms6G -Xmx8G"
 
   kafka-3:
     restart: always
@@ -98,7 +94,7 @@ services:
       resources:
         limits:
           cpus: "2"
-          memory: "8g"
+          memory: "7g"
     networks:
       - shared
     environment:
@@ -108,7 +104,6 @@ services:
 #      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:9092,PLAINTEXT_HOST://localhost:49092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_HEAP_OPTS: "-Xms6G -Xmx8G"
 
   kafka-ui:
     restart: always

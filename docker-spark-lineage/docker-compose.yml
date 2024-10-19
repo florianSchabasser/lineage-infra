@@ -34,8 +34,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
-          memory: "8g"
+          cpus: "3"
+          memory: "10g"
     networks:
       - shared
 
@@ -55,8 +55,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
-          memory: "8g"
+          cpus: "3"
+          memory: "10g"
     networks:
       - shared
 
@@ -76,8 +76,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
-          memory: "8g"
+          cpus: "3"
+          memory: "10g"
     networks:
       - shared
 
