@@ -46,4 +46,4 @@ def create_files(mb: int):
 
 
 if __name__ == "__main__":
-    create_files(1)
+    create_files(1000)
