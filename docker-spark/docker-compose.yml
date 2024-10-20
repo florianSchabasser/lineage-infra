@@ -5,7 +5,7 @@ services:
     image: floriansdocker/spark:3.5.3.0
     command: bin/spark-class org.apache.spark.deploy.master.Master
     ports:
-      - "8081:8080"
+      - "8080:8080"
     environment:
       - SPARK_MODE=master
       - SPARK_MASTER_PORT=7077
