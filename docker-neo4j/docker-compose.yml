@@ -12,9 +12,9 @@ services:
       - NEO4J_apoc_import_file_enabled=true
       - NEO4J_apoc_import_file_use__neo4j__config=true
       - NEO4J_PLUGINS=["apoc"]
-      - NEO4J_server_memory_heap_initial__size=4G
-      - NEO4J_server_memory_heap_max__size=4G
-      - NEO4J_server_memory_pagecache_size=5G
+      - NEO4J_server_memory_heap_initial__size=8G
+      - NEO4J_server_memory_heap_max__size=8G
+      - NEO4J_server_memory_pagecache_size=10G
     volumes:
       - neo4j_data:/data
       - neo4j_logs:/logs
@@ -24,8 +24,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "3"
-          memory: "10g"
+          cpus: "4"
+          memory: "20g"
     networks:
       - shared
 
