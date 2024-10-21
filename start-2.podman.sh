@@ -1,4 +1,5 @@
-podman network create shared
+cd ../docker-spark-lineage || exit
+podman-compose stop
 
 cd ./docker-hadoop || exit
 podman-compose up -d
@@ -12,5 +13,4 @@ podman-compose up -d
 cd ../docker-lineage || exit
 podman-compose up -d
 
-cd ../docker-spark-lineage || exit
-podman-compose up -d
+
