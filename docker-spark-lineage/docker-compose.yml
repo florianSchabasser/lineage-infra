@@ -2,7 +2,7 @@ services:
   spark-master-lineage:
     restart: always
     container_name: spark-master-lineage
-    image: floriansdocker/spark-lineage:3.5.3.3
+    image: floriansdocker/spark-lineage:3.5.3.5
     command: bin/spark-class org.apache.spark.deploy.master.Master
     ports:
       - "8080:8080"
@@ -21,7 +21,7 @@ services:
   spark-worker-1-lineage:
     restart: always
     container_name: spark-worker-1-lineage
-    image: floriansdocker/spark-lineage:3.5.3.3
+    image: floriansdocker/spark-lineage:3.5.3.5
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master-lineage:7077
     ports:
       - "9500:8081"
@@ -42,7 +42,7 @@ services:
   spark-worker-2-lineage:
     restart: always
     container_name: spark-worker-2-lineage
-    image: floriansdocker/spark-lineage:3.5.3.3
+    image: floriansdocker/spark-lineage:3.5.3.5
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master-lineage:7077
     ports:
       - "9501:8081"
@@ -63,7 +63,7 @@ services:
   spark-worker-3-lineage:
     restart: always
     container_name: spark-worker-3-lineage
-    image: floriansdocker/spark-lineage:3.5.3.3
+    image: floriansdocker/spark-lineage:3.5.3.5
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master-lineage:7077
     ports:
       - "9502:8081"
